@@ -1,0 +1,36 @@
+<template>
+  <!--<require from="../../assets/css/footable.bootstrap.min.css"></require>  -->
+  <require from="./TableUsers.css"></require> 
+ 
+  <div>   
+  <h2>Users</h2>
+  
+  <table class="table-hover">
+  	<thead>
+  	<tr>  		
+  		<th click.trigger="sort(user)">Name</th>
+  		<th>Email</th>
+      <th>Action</th>
+  	</tr>
+  	</thead>
+  	<tbody>
+  	<tr repeat.for="user of users">        		
+  		<!--Read Only-->
+      <td if.bind="editing !== user">${user.name}</td>
+  		<td if.bind="editing !== user">${user.email}</td>
+      <!--Edit-->
+      <td if.bind="editing === user"><input value.bind="user.name" type="text"></td>
+  		<td if.bind="editing === user"><input value.bind="user.email" type="email"></td>
+      <td>
+        <button if.bind="editing === user" click.trigger="cancel(user)" class="btn btn-primary btn-xs">Cancel</button>
+        <button if.bind="editing === user" click.trigger="save(user)" class="btn btn-primary btn-xs">Save</button>        
+        <button if.bind="editing !== user" click.trigger="edit(user)" class="btn btn-primary btn-xs">Edit</button>
+        <button if.bind="editing !== user" click.trigger="delete(user)" class="btn btn-primary btn-xs">Delete</button>        
+      </td>
+  	</tr>
+  	</tbody>  
+  </table>  
+  </div>
+  </br>
+  
+</template>

@@ -1,0 +1,67 @@
+<template>    
+    <require from="./assets/bootstrap/css/bootstrap.min.css"></require>
+    <require from="./assets/css/styles.css"></require>
+    <!--<require from="./sidebar.css"></require>   -->
+      
+    <!--<div id="wrapper">
+
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/">
+                        Aurelia Examples
+                    </a>
+                </li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">SignUp</a></li>
+                <li><a href="/users">Users</a></li>                
+            </ul>
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                  <button class="btn btn-default" id="menu-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <div class="container"> 
+                      <router-view></router-view>
+                    </div>              
+            </div>
+                </div>
+            </div>
+    </div>-->
+
+
+
+
+      <div class="container">
+        <nav class="navbar navbar-default navigation-clean navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="/">Aurelia Framework</a>
+              <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>            
+            <div class="collapse navbar-collapse" id="navcol-1">           
+              <ul if.bind="!isAuthenticated" class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" >Routes <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                      <li role="presentation"><a href="/users">Users</a></li>
+                  </ul>
+                </li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Signup</a></li>
+              </ul>
+              <ul if.bind="isAuthenticated" class="nav navbar-nav navbar-right">
+                <li><a href="/logout">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    <div class="container"> 
+      <router-view></router-view>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        by Rodrigo Sz Sampaio       
+      </div>
+    </footer>
+</template>
